@@ -33,10 +33,10 @@ const PokemonAbilityPage = () => {
 		const getFlavorText = () => {
 			var tempArr = [];
 			abilityData?.flavor_text_entries.forEach((element) => {
-				if (element?.language?.name === "en") {
-					//console.log(element)
-					tempArr.push(element);
-				}
+				if !(element?.language?.name === "en") {
+					console.log(element)
+					
+				}else(tempArr.push(element);)
 			});
 			setFlavorText(tempArr[Math.floor(Math.random() * tempArr.length)]);
 			fetch(`${abilityData?.pokemon[0].pokemon.url}`)
